@@ -1,0 +1,30 @@
+
+
+.Root{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  overflow: auto;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+ 
+.Word{
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0.1em
+}
+
+
+
+
+@supports not (gap: 1em){
+  .Word:not(:first-child){
+    margin-left: 1em;
+  }
+  .Char:not(:first-child){
+    margin-left: 0.1em;
+  }
+}
