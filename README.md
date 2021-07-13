@@ -1,4 +1,26 @@
-# Getting Started with Create React App
+## Guess the TV Show Game
+
+# Project Description:
+
+This project is a "Guess the TV Show Game".
+Uses the following api: https://api.themoviedb.org/3
+
+
+
+# Demo
+
+
+*TV Shows are Logged to the console If you want to cheat :)*
+
+**Important** - in order to run locally you have to use your own api key for *TheMovieDB* and put it in the following env variable:
+REACT_APP_FILMS_API_KEY
+
+Libraries Usage:
+axios, classnames, node-sass, redux, react-transition-group
+ 
+
+---------------------------------------------------------------------------------------------
+# React Instrunctions:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
