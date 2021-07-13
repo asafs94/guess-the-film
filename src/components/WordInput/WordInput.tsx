@@ -45,6 +45,7 @@ const WordInput: FC<WordInputProps> = ({ autoFocus, name, className, onChange, d
   return <div className={classNames(styles.Root, className)} ref={divRef}>
     {value.map((input, index) =>
       <SingleCharInput
+        type="text"
         key={`${input.name}`}
         disabled={input.disabled || disabled}
         onChange={(event) => _onChange(index, event)}
