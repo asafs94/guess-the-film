@@ -29,13 +29,21 @@ const GameForm = forwardRef<HTMLFormElement, GameFormProps>((props, ref) => {
     const input = target?.querySelector(selector);
     if (!(input instanceof HTMLInputElement)) return;
     const inputToFocus = input.disabled ? getClosestEnabledInput(input, direction) : input;
-    inputToFocus && inputToFocus.focus();
+    if (inputToFocus) inputToFocus.focus();
+    else onAskFocus(target as HTMLDivElement, direction);
+  }
+
+  const validateForm = () => {
+    const someCharIsEmpty = _words.some(word => word.some(input => !input.value));
+    return someCharIsEmpty ? 'Oopsi! you missed a letter.' : '';
   }
 
   const _onSubmit = (event: FormEvent) => {
     event.preventDefault();
+    const error = validateForm();
+    if (error) return;
     const name = _words.map(word => word.map(inputChar => inputChar.value).join('')).join(' ')
-    onSubmit(name)
+    return onSubmit(name)
   }
 
   return (
