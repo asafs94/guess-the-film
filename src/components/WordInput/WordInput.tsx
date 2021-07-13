@@ -28,7 +28,7 @@ const WordInput: FC<WordInputProps> = ({ autoFocus, name, className, onChange, d
   const _onChange = (index: number, event: ChangeEvent<HTMLInputElement>) => {
     const input = event.target;
     const newValue = [...value];
-    newValue[index].value = input.value;
+    newValue[index].value = input.value.slice(-1);
     onChange(newValue);
   }
 
