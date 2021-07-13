@@ -98,7 +98,7 @@
   }
 }
 
-@media screen and (orientation: landscape) and (max-height: 500px) {
+@media screen and (orientation: landscape) and (max-height: 500px) and (min-width: 600px) {
   .Root{
     &::after{
       content: "Not supported in landscape mode for your screen sizes. Please rotate your device.";
