@@ -64,7 +64,7 @@ function App() {
       <button className={styles.StatisticsButton} onClick={onStatistics}>Statistics</button>
       <GameStatus className={styles.GameState} {...gameStatus} />
       <Paper className={classNames(styles.Content)} >
-        <div className={classNames(styles.G, { [styles.transparent]: !gameStarted })}>
+        <div className={classNames(styles.StartAnimation, { [styles.transparent]: !gameStarted })}>
           <GameContent gameState={gameState} />
         </div>
       </Paper>

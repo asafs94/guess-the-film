@@ -19,7 +19,6 @@ function RandomTvShowProvider({ children }: Props) {
   const [lastPage, setLastPage] = useState<number | undefined>();
   const [error, setError] = useState<Error | null>(null);
 
-
   const filmWasGuessed = (film: TvShow) => {
     return tvShowsHistory.some(f => f.id === film.id)
   }

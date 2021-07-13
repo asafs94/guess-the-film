@@ -1,7 +1,7 @@
 import { FC, ReactNode, useState } from "react";
-import Icons from "../../assets/icons";
 import Grow from "../Animations/Grow";
 import Slide from '../Animations/Slide'
+import IconButton from "../IconButton";
 import Paper from "../Paper";
 import styles from './Modal.module.scss';
 
@@ -22,9 +22,7 @@ const Modal: FC<Props> = ({ show, onClose, children, header }) => {
         <Slide in={showModal} onExited={onClose}>
           <Paper className={styles.Modal}>
             {header && <h3 className={styles.Header} >{header}</h3>}
-            <button className={styles.Close} onClick={() => setShowModal(false)} >
-              <Icons.Close />
-            </button>
+            <IconButton icon="Close" className={styles.Close} onClick={() => setShowModal(false)} />
             <div className={styles.Content} >
               {children}
             </div>

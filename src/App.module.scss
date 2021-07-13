@@ -48,7 +48,7 @@
   
 }
 
-.G{
+.StartAnimation{
   --appear-delay: calc(var(--content-appear-delay) + var(--logo-transition-time));
   opacity: 1;
   transition: opacity 1000ms var(--appear-delay) ease-in-out;
@@ -67,7 +67,7 @@
 .Footer{
   grid-area: buttons;
   height: 3.125rem;
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
 }
@@ -90,7 +90,6 @@
   justify-content: center;
   letter-spacing: 1px;
 }
-
 
 
 @media screen and (min-width: 650px){

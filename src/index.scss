@@ -14,13 +14,14 @@
   --clr-primary: hsl(182, 32%, 49%);
   --clr-primary-light: hsl(182, 32%, 80%);
   --clr-primary-contrast: white;
-  --clr-text: hsl(0,0,44%);
+  --clr-text: hsl(0, 0%, 14%);
   --clr-heart: hsl(2,67%,57%);
   --clr-secondary: hsl(48, 96%, 45%);
+  --clr-bg: hsl(45, 100%, 85%);
 }
 
 body {
-  background: hsl(45, 100%, 85%);
+  background: var(--clr-bg);
   margin: 0;
   font-family: 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -51,10 +52,17 @@ button {
   color: var(--clr-primary-contrast);
   padding: 0.25em 0.5em;
   border-radius: 1000rem;
+  font-weight: 600;
   &:active{
     background: var(--clr-primary-light);
   }
+  &:focus{
+    outline: none;
+    box-shadow: 0 0 0 2px transparent, 0 0 0 6px hsla(0,00%,50%,0.9);
+  }
 }
+
+
 
 @media (hover: hover) {
   button[aria-label]{

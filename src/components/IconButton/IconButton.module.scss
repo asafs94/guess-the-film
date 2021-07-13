@@ -1,4 +1,13 @@
 .Root {
   display: flex;
-  height: fit-content;
+  font-size: 1em;
+  height: 2em;
+  width: 2em;
+  padding: 0.25em;
+  border-radius: 100%;
+  font-size: inherit;
+  &>svg{
+    width: 100%;
+    height: 100%;
+  }
 }
