@@ -1,3 +1,3 @@
 import React, { InputHTMLAttributes, ReactNode } from "react";
 
-export type SingleCharInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "maxLength">;
+export type SingleCharInputProps = { preferredCasing: "lowercase" | "uppercase" } & Omit<InputHTMLAttributes<HTMLInputElement>, "maxLength">;

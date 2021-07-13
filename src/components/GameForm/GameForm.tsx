@@ -1,5 +1,5 @@
 import styles from './GameForm.module.scss'
-import { FormEvent, forwardRef, useEffect, useState } from 'react';
+import { FormEvent, forwardRef, useEffect, useMemo, useState } from 'react';
 import WordInput from '../WordInput/WordInput';
 import { getClosestEnabledInput } from '../../utils';
 import { CharInputArray } from '../WordInput/types';
@@ -7,9 +7,13 @@ import classNames from 'classnames';
 import { GameFormProps } from './types';
 
 
+const getFirstEnabledWord = (words: CharInputArray[]) => words.findIndex(word => word.some(input => !input.disabled))
+
 const GameForm = forwardRef<HTMLFormElement, GameFormProps>((props, ref) => {
   const { words, onSubmit, className } = props;
   const [_words, set_words] = useState(words);
+
+  const firstEnabledWordIndex = useMemo(() => getFirstEnabledWord(_words), [_words])
 
   useEffect(() => {
     set_words(words);
@@ -48,7 +52,7 @@ const GameForm = forwardRef<HTMLFormElement, GameFormProps>((props, ref) => {
 
   return (
     <form ref={ref} className={classNames(styles.Root, className)} onSubmit={_onSubmit}>
-      {_words.map((word, index) => <WordInput key={'word-' + index} className={styles.Word} value={word} onAskFocus={onAskFocus} onChange={(newWord) => onChange(index, newWord)} />)}
+      {_words.map((word, index) => <WordInput key={'word-' + index} autoFocus={firstEnabledWordIndex === index} className={styles.Word} value={word} onAskFocus={onAskFocus} onChange={(newWord) => onChange(index, newWord)} />)}
       <button style={{ display: 'none' }} type="submit" />
     </form>
   )

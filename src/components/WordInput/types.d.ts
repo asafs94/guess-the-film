@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes } from "react"
+import { SingleCharInputProps } from "../SingleCharInput/types"
 
 type WordInputProps = {
   className?: string,
@@ -6,7 +6,9 @@ type WordInputProps = {
   disabled?: boolean,
   value: CharInputArray,
   onAskFocus?: (element: HTMLDivElement, direction: 'forward' | 'backward') => void
-  name?: string
+  name?: string,
+  preferredCasing?: "uppercase" | "lowercase",
+  autoFocus?: boolean
 }
 
-type CharInputArray = Array<InputHTMLAttributes<HTMLInputElement>>
+type CharInputArray = Array<SingleCharInputProps>

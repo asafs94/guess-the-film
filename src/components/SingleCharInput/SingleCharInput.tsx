@@ -6,13 +6,15 @@ import classNames from 'classnames';
 
 
 const SingleCharInput = forwardRef<HTMLInputElement, SingleCharInputProps>((props, ref) => {
-  const { className, ...rest } = props
+  const { className, preferredCasing, ...rest } = props
   return (
     <input
       ref={ref}
       className={classNames(styles.Root, className)}
       maxLength={1}
-      {...rest} />
+      style={{ textTransform: preferredCasing }}
+      {...rest}
+    />
   )
 })
 

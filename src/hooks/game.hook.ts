@@ -10,6 +10,10 @@ export const useGame = () => {
   const [stageHintTaken, setStageHintTaken] = useState(false); //Wether hin was taken in this stage.
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    console.log(tvShow?.name)
+  }, [tvShow?.name])
+
   const onGuess = (name: string) => {
     if (name.toLowerCase() === tvShow?.name.toLowerCase()) {
       dispatch(actions.success())
