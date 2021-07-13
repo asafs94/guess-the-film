@@ -5,26 +5,27 @@
   align-items: center;
   justify-content: center;
   max-width: 100%;
-  overflow: auto;
   flex-wrap: wrap;
   gap: 1em;
+  overflow-x: hidden;
 }
 
  
-.Word{
+.Input{
   display: flex;
   flex-wrap: nowrap;
-  gap: 0.1em
 }
 
 
 
 
 @supports not (gap: 1em){
-  .Word:not(:first-child){
-    margin-left: 1em;
-  }
-  .Char:not(:first-child){
-    margin-left: 0.1em;
+  .Root{
+    margin-left: -1em;
+    margin-top: -1em;
+    .Input{
+      margin-left: 1em;
+      margin-top: 1em
+    }
   }
 }

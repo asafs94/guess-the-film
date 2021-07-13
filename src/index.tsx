@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import RandomTvShow from './contexts/randomTvShow.context';
+import { Provider } from 'react-redux';
+import store from './redux/store';
+import AppForm from './contexts/form.context';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <RandomTvShow.Provider>
+        <AppForm.Provider>
+          <App />
+        </AppForm.Provider>
+      </RandomTvShow.Provider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

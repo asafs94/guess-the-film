@@ -1,0 +1,64 @@
+.Root{
+  display: grid;
+  grid-template-rows: 1.5em 1.5em;
+  grid-template-columns: 2fr minmax(2em,3em);
+  font-size: 1rem;
+  letter-spacing: 1px;
+  grid-template-areas: 
+  'life-left score'
+  'hints-left score';
+  gap: 0.1em 0.75em;
+}
+
+
+.ScoreRow{
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  font-weight: normal;
+  width: 100%;
+  grid-area: score-text;
+  .Score{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    padding: 0.25em;
+    line-height: 0.8em;
+    min-width: 1.5em;
+    font-weight: 600;
+    border-radius: 0.2em;
+    background: var(--clr-primary);
+    color: var(--clr-primary-contrast)
+  }
+}
+
+.Score{
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  // width: 100%;
+  grid-area: score;
+}
+
+
+.LifeLeft{
+  grid-area:life-left;
+  display: flex;
+  flex-wrap: nowrap;
+  .Heart{
+    height: 100%;
+    width: clamp(1em, 1.5em, 33%);
+    color: var(--clr-heart);
+    &:not(:first-child){
+      margin-left: 0.25em;
+    }
+  }
+}
+
+.HintsUsed{
+  grid-area:hints-left;
+  font-weight: 300;
+  letter-spacing: -1px;
+  white-space: nowrap;
+}

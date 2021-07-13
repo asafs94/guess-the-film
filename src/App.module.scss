@@ -1,0 +1,100 @@
+.Root{
+  --first-column: 9.5rem;
+  --height-statistics-button: 1.75rem;
+  --root-padding-top: calc(var(--app-padding) + var(--height-statistics-button));
+  display: grid;
+  height: 100%;
+  width: 100%;
+  grid-template-columns: var(--first-column) 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  overflow-y: auto;
+  grid-template-areas: 
+  'game-state clr-fill title'
+  'form form form'
+  'buttons buttons buttons';
+  padding: var(--app-padding);
+  padding-top: var(--root-padding-top);
+  grid-gap: calc(var(--app-padding) / 2);
+}
+
+:root{
+  --logo-transition-time: 750ms;
+  --content-appear-delay: 250ms;
+}
+
+.Logo{
+  grid-area: title;
+  align-self: center;
+  transition: transform var(--logo-transition-time) ease-in-out;
+  --y-translate:calc(50vh - 50% - var(--root-padding-top));
+  --x-translate: calc(var(--app-padding) + 50% - 50vw);
+  &.center{
+    transform: translate(var(--x-translate),var(--y-translate)) scale(1.75);
+  }
+}
+
+.Content{
+  grid-area: form;
+  font-size: clamp(1rem, calc(-0.875rem + 8.333vw), 3.5rem);
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+  >*{
+    margin: auto;
+  }
+  
+}
+
+.G{
+  --appear-delay: calc(var(--content-appear-delay) + var(--logo-transition-time));
+  opacity: 1;
+  transition: opacity 1000ms var(--appear-delay) ease-in-out;
+  &.transparent{
+    opacity: 0;
+  }
+}
+
+.GameState {
+  grid-area: game-state;
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;;
+}
+
+.Footer{
+  grid-area: buttons;
+  height: 3.125rem;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+}
+
+.StatisticsButton {
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  width: var(--first-column);
+  border-radius: 0;
+  border-bottom-left-radius: 1.375rem;
+  border-bottom-right-radius: 1.375rem;
+  height: 1.75rem;
+  border: 0.1rem solid;
+  padding: 0.5em;
+  border-top: none;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 1px;
+}
+
+
+
+@media screen and (min-width: 650px){
+  .GameState{
+    grid-column: 1/3;
+  }
+}

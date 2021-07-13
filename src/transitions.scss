@@ -1,0 +1,37 @@
+.grow-enter {
+  opacity: 0;
+  transform: scale(0);
+}
+.grow-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: all ease 250ms;
+}
+.grow-exit {
+  opacity: 1;
+  transform: scale(1);
+  transition: all ease 250ms;
+}
+.grow-exit-active {
+  opacity: 0;
+  transform: scale(0);
+}
+
+
+.slide{
+  &-enter {
+    transform: translateY(100vh);
+  }
+  &-enter-active {
+    transform: none;
+    transition: all ease 250ms;
+  }
+  &-exit{
+    transform: none;
+    transition: all ease 250ms;
+  }
+  &-exit-active{
+    transform: translateY(100vh);
+  } 
+}
+

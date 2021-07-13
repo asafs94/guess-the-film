@@ -1,0 +1,82 @@
+@import './transitions.scss';
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+
+:root{
+  --app-padding: 1rem;
+  --clr-paper: hsl(0,100%,100%);
+  --clr-primary: hsl(182, 32%, 49%);
+  --clr-primary-light: hsl(182, 32%, 80%);
+  --clr-primary-contrast: white;
+  --clr-text: hsl(0,0,44%);
+  --clr-heart: hsl(2,67%,57%);
+  --clr-secondary: hsl(48, 96%, 45%);
+}
+
+body {
+  background: hsl(45, 100%, 85%);
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: var(--clr-text)
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+html,body, #root{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  background: var(--clr-primary);
+  color: var(--clr-primary-contrast);
+  padding: 0.25em 0.5em;
+  border-radius: 1000rem;
+  &:active{
+    background: var(--clr-primary-light);
+  }
+}
+
+@media (hover: hover) {
+  button[aria-label]{
+    position: relative;
+    &:after{
+      content: attr(aria-label);
+      bottom: calc(100% + 0.5rem);
+      left: 50%;
+      position: absolute;
+      opacity: 0;
+      font-size: 0.85rem;
+      display: flex;
+      padding: 0.25em 0.5em;
+      transition: opacity 250ms ease-in-out;
+      background: hsla(0,00%,50%,0.5);
+      border-radius: 1em;
+      transform: translateX(-50%);
+    }
+    &:hover:after, &:focus:after{
+      opacity: 1;
+    }
+  }
+  
+}
+

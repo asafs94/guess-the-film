@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="187.347" viewBox="0 0 160 187.347">
+  <g id="Group_4" data-name="Group 4" transform="translate(508 198.347)">
+    <text id="Correct" transform="translate(-428 -23)" fill="var(--clr-primary)" font-size="46" font-family="SegoeUI-Bold, Segoe UI" font-weight="700" letter-spacing="0.003em"><tspan x="-79.477" y="0">Correct</tspan></text>
+    <path d="M40.277,54.039,31.521,62.8,59.668,90.942l62.548-62.548-8.756-8.756L59.668,73.115Zm75.683,11.883A49.824,49.824,0,1,1,79.684,17.761l9.694-9.7A58.181,58.181,0,0,0,65.923,3.375,62.548,62.548,0,1,0,128.47,65.923Z" transform="translate(-493.627 -201.722)" fill="var(--clr-primary)"/>
+  </g>
+</svg>

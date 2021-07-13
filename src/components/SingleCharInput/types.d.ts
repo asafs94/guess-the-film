@@ -1,10 +1,3 @@
+import React, { InputHTMLAttributes, ReactNode } from "react";
 
-export type SingleCharInputProps = {
-  onPrevious?: () => void,
-  onNext?: () => void,
-  regex?: RegExp,
-  onChange?: (value: string) => void,
-  defaultValue?: string,
-  disabled?: boolean,
-  className?: string
-}
+export type SingleCharInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, "maxLength">;
