@@ -12,6 +12,10 @@ const WordInput: FC<WordInputProps> = ({ autoFocus, name, className, onChange, d
   const divRef = useRef<HTMLDivElement | null>(null);
   const firstEnabledInputIndex = useMemo(() => getFirstEnabledInput(value), [value])
 
+  /**
+   * AutoFocus
+   */
+  //TODO: Check wether it's possible to somehome utilize native autoFocus.
   useEffect(() => {
     if (autoFocus && firstEnabledInputIndex !== -1 && divRef.current) {
       const inputs = Array.from(divRef.current?.children) as Array<HTMLInputElement>
@@ -32,11 +36,19 @@ const WordInput: FC<WordInputProps> = ({ autoFocus, name, className, onChange, d
     onChange(newValue);
   }
 
+  /**
+   * To Focus on Next Input
+   * @param event 
+   */
   const onInput = (event: React.FormEvent<HTMLInputElement>) => {
     const input = event.currentTarget;
     input.value && setFocus(input, "forward")
   }
 
+  /**
+   * To Focus on Next Previous
+   * @param event 
+   */
   const onKeyUp = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const input = event.currentTarget;
     if (["Backspace", "Delete"].includes(event.key)) setFocus(input, "backward")

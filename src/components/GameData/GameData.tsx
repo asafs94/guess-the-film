@@ -7,8 +7,8 @@ import { TransitionGroup } from 'react-transition-group'
 import Grow from '../Animations/Grow';
 import Score from '../Score/Score';
 
-type Props = {
-  lifeLeft: number, hintsUsed: number, score: number, className?: string
+type Props = GameData & {
+  className?: string
 }
 
 const GameData: FC<Props> = ({ lifeLeft, hintsUsed, score, className }) => {

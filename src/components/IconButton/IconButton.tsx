@@ -5,7 +5,6 @@ import styles from './IconButton.module.scss'
 
 type Props = {
   icon: keyof typeof Icons,
-
 } & ButtonHTMLAttributes<ReactNode>
 
 const IconButton: FC<Props> = ({ icon, className, ...props }) => {

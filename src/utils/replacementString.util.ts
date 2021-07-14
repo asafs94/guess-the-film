@@ -20,16 +20,16 @@ export const replaceRandomChar = (str: string, replacement: string, except: stri
 
 export const generatePartialName = (name: string, percentageToReplace: number) => {
   const amountOfCharsToRemove = getAmountOfCharactersToRemove(name, percentageToReplace);
-  const blankSpace = UNIQUE_CHARACTERS.find(char => !name.includes(char));
-  if (!blankSpace) throw new Error("Could not find a proper replacer for string");
+  const replacementSymbol = UNIQUE_CHARACTERS.find(char => !name.includes(char));
+  if (!replacementSymbol) throw new Error("Could not find a proper replacer for string");
   let _name = name;
   for (let i = 0; i < amountOfCharsToRemove; i++) {
-    _name = replaceRandomChar(_name, blankSpace, [blankSpace, ' ']);
+    _name = replaceRandomChar(_name, replacementSymbol, [replacementSymbol, ' ']);
   }
   return {
     origin: name,
     altered: _name,
-    blankSpaceSymbol: blankSpace
+    replacementSymbol
   }
 }
 
@@ -42,9 +42,9 @@ export default class ReplacementString {
   replacementSymbol: string;
 
   constructor(str: string, percentageToReplace: number = 0.5) {
-    const { origin, altered, blankSpaceSymbol } = generatePartialName(str, percentageToReplace);
+    const { origin, altered, replacementSymbol } = generatePartialName(str, percentageToReplace);
     this.origin = origin;
     this.altered = altered;
-    this.replacementSymbol = blankSpaceSymbol;
+    this.replacementSymbol = replacementSymbol;
   }
 }
