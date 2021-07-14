@@ -20,7 +20,7 @@ export const replaceRandomChar = (str: string, replacement: string, except: stri
 
 export const generatePartialName = (name: string, percentageToReplace: number) => {
   const amountOfCharsToRemove = getAmountOfCharactersToRemove(name, percentageToReplace);
-  const replacementSymbol = UNIQUE_CHARACTERS.find(char => !name.includes(char));
+  const replacementSymbol = UNIQUE_CHARACTERS.find(char => !name.includes(char)); // Use a replacement symbol that doesnt exist in original string.
   if (!replacementSymbol) throw new Error("Could not find a proper replacer for string");
   let _name = name;
   for (let i = 0; i < amountOfCharsToRemove; i++) {
@@ -34,8 +34,16 @@ export const generatePartialName = (name: string, percentageToReplace: number) =
 }
 
 
-
-export default class ReplacementString {
+/**
+ * @class
+ * An class which represents an instance of string with random missing characters or characters to be replaced.
+ * Contains:
+ * origin string, the altered string with a temporary special character represnting the replaced characters, and the special character.
+ * @property {string} origin - original string.
+ * @property {string} altered - the replacement string.
+ * @property {string} replacementSymbol - the replacement symbol used.
+ */
+export default class RandomReplacementString {
 
   origin: string;
   altered: string;

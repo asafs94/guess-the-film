@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import ReplacementString from "../utils/replacementString.util";
+import { SingleCharInputProps } from "../components/SingleCharInput/types";
+import RandomReplacementString from "../utils/replacementString.util";
 
 
 const getCharacterCasing = (char: string) => {
@@ -8,7 +9,7 @@ const getCharacterCasing = (char: string) => {
 
 const mapStringToSingleCharInputs = (name: string) => {
   if (!name) return [];
-  const { altered, replacementSymbol } = new ReplacementString(name, 0.5);
+  const { altered, replacementSymbol } = new RandomReplacementString(name, 0.5);
   const originArrays = name.split(' ').map(word => word.split(''));
   return altered.split(' ').map((word, wordIndex) => word.split('').map((char, charIndex) => {
     return ({
@@ -20,7 +21,7 @@ const mapStringToSingleCharInputs = (name: string) => {
   }))
 }
 
-const usePartialNameInputs = (str: string) => {
+const usePartialNameInputs = (str: string): SingleCharInputProps[][] => {
   const [partialNameInputs, setPartialNameInputs] = useState(mapStringToSingleCharInputs(str));
   useEffect(() => {
     setPartialNameInputs(mapStringToSingleCharInputs(str))
